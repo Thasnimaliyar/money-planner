@@ -91,21 +91,19 @@
 </form>
 
 <br>
-<table>
+                    <table border="1">
   <thead>
     <tr>
       <th>Date</th>
       <th>Description</th>
       <th>Category</th>
-      <th align="right">Amount</th>
-        <th>Action</th>
+      <th>Amount</th>
+      <th>Action</th>
     </tr>
   </thead>
-
-  <tbody>
-    <!-- data goes here -->
-  </tbody>
+  <tbody id="tableBody"></tbody>
 </table>
+
 <!-- Your existing table stays -->
 
                     <!-- Table utilizing custom background colors and cell-padding spacing to act as grid lines -->
@@ -317,42 +315,70 @@ document.getElementById("budgetForm").addEventListener("submit", async (e) => {
 });
 </script>
     <script>
-const tableBody = document.getElementById("tableBody");
+let data = JSON.parse(localStorage.getItem("data")) || [];
+let editIndex = -1;
 
-// ✅ ADD DATA TO TABLE
-document.getElementById("budgetForm").addEventListener("submit", function(e) {
+function displayData() {
+  let table = document.getElementById("tableBody");
+  table.innerHTML = "";
+
+  data.forEach((item, index) => {
+    table.innerHTML += `
+      <tr>
+        <td>${item.date}</td>
+        <td>${item.desc}</td>
+        <td>${item.cat}</td>
+        <td>${item.amt}</td>
+        <td>
+          <button onclick="editData(${index})">Edit</button>
+          <button onclick="deleteData(${index})">Delete</button>
+        </td>
+      </tr>
+    `;
+  });
+
+  localStorage.setItem("data", JSON.stringify(data));
+}
+
+document.getElementById("myForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  const formData = new FormData(this);
+  let newData = {
+    date: document.getElementById("date").value,
+    desc: document.getElementById("desc").value,
+    cat: document.getElementById("cat").value,
+    amt: document.getElementById("amt").value
+  };
 
-  const description = formData.get("description");
-  const category = formData.get("category");
-  const amount = formData.get("amount");
-
-  const date = new Date().toLocaleDateString();
-
-  const row = document.createElement("tr");
-
-  row.innerHTML = `
-    <td>${date}</td>
-    <td>${description}</td>
-    <td>${category}</td>
-    <td align="right">${amount}</td>
-    <td><button onclick="deleteRow(this)">Delete</button></td>
-  `;
-
-  tableBody.appendChild(row);
+  if (editIndex === -1) {
+    data.push(newData);
+  } else {
+    data[editIndex] = newData;
+    editIndex = -1;
+  }
 
   this.reset();
+  displayData();
 });
 
-
-// ✅ DELETE ROW
-function deleteRow(button) {
-  const row = button.parentElement.parentElement;
-  row.remove();
+function deleteData(index) {
+  data.splice(index, 1);
+  displayData();
 }
-</script>
 
+function editData(index) {
+  let item = data[index];
+
+  document.getElementById("date").value = item.date;
+  document.getElementById("desc").value = item.desc;
+  document.getElementById("cat").value = item.cat;
+  document.getElementById("amt").value = item.amt;
+
+  editIndex = index;
+}
+
+displayData();
+</script>
+    
 </body>
 </html>
