@@ -102,8 +102,11 @@
                                 <th align="left"><font color="#ffffff" face="Segoe UI, Arial, sans-serif">Description</font></th>
                                 <th align="left"><font color="#ffffff" face="Segoe UI, Arial, sans-serif">Category</font></th>
                                 <th align="right"><font color="#ffffff" face="Segoe UI, Arial, sans-serif">Amount</font></th>
+                                <th>Action</th>
                             </tr>
                         </thead>
+                        <tbody id="tableBody">
+</tbody>
                         <tbody>
                             <!-- Income Row: Uses deep emerald green (#27ae60) for positive financial gains -->
                             <tr bgcolor="#ffffff">
@@ -298,6 +301,43 @@ document.getElementById("budgetForm").addEventListener("submit", async (e) => {
   alert("Saved to Google Sheet!");
   e.target.reset();
 });
+</script>
+    <script>
+const tableBody = document.getElementById("tableBody");
+
+// ✅ ADD DATA TO TABLE
+document.getElementById("budgetForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  const description = formData.get("description");
+  const category = formData.get("category");
+  const amount = formData.get("amount");
+
+  const date = new Date().toLocaleDateString();
+
+  const row = document.createElement("tr");
+
+  row.innerHTML = `
+    <td>${date}</td>
+    <td>${description}</td>
+    <td>${category}</td>
+    <td align="right">${amount}</td>
+    <td><button onclick="deleteRow(this)">Delete</button></td>
+  `;
+
+  tableBody.appendChild(row);
+
+  this.reset();
+});
+
+
+// ✅ DELETE ROW
+function deleteRow(button) {
+  const row = button.parentElement.parentElement;
+  row.remove();
+}
 </script>
 
 </body>
