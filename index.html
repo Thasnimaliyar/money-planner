@@ -1,385 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Pocket-Money Budget Planner</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Pocket-Money Budget Planner</title>
+
+<style>
+/* GLOBAL STYLING */
+body {
+    background-color: #f4f6f9;
+    color: #2c3e50;
+    font-family: Segoe UI, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+}
+
+/* HEADING STYLES */
+h1 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+h2 {
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+h3 {
+    font-size: 14px;
+}
+
+/* CONTENT TEXT */
+p, li, td, th {
+    font-size: 12px;
+}
+
+/* LINKS */
+a {
+    color: #e74c3c;  /* red color */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* HEADER */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+}
+
+/* TABLE */
+table {
+    border-collapse: collapse;
+}
+
+/* CARD BOX */
+.card {
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* FOOTER */
+footer {
+    background-color: #2c3e50;
+    color: #bdc3c7;
+    padding: 10px;
+}
+</style>
+
 </head>
-<!-- 
-  The <body> tag sets the global colors of the document:
-  - bgcolor: Light grayish-blue background (#f4f6f9)
-  - text: Dark slate charcoal text color (#2c3e50)
-  - link/vlink: Professional deep blues and muted grays for hyperlinks
--->
-<body bgcolor="#f4f6f9" text="#2c3e50" link="#2980b9" vlink="#7f8c8d">
 
-    <!-- HEADER SECTION: Dark background banner styling for the page title -->
-    <header>
-        <!-- A full-width (100%) borderless table is used to perfectly center and pad the title content -->
-        <table width="100%" cellpadding="20" cellspacing="0" bgcolor="#2c3e50">
-            <tr>
-                <td>
-                    <h1><font color="#ffffff" face="Segoe UI, Arial, sans-serif">💰 Smart Pocket-Money Budget Planner</font></h1>
-                    <p><font color="#1abc9c" face="Segoe UI, Arial, sans-serif"><strong>Take Control of Your Cashflow, Savings, and Financial Growth</strong></font></p>
-                </td>
-                <!-- Right-aligned navigation links linking to sections further down the page -->
-                <td align="right" valign="bottom">
-                    <nav>
-                        <font face="Segoe UI, Arial, sans-serif" size="3">
-                            <a href="#methods"><font color="#ffffff">Budget Methods</font></a> &nbsp;|&nbsp; 
-                            <a href="#ledger"><font color="#ffffff">Cashflow Ledger</font></a> &nbsp;|&nbsp; 
-                            <a href="#rates"><font color="#ffffff">Bank Rates</font></a> &nbsp;|&nbsp; 
-                            <a href="#calculator"><font color="#ffffff">Interest Tool</font></a>
-                        </font>
-                    </nav>
-                </td>
-            </tr>
-        </table>
-    </header>
+<body>
 
-    <!-- MAIN WRAPPER TABLE: Keeps all content centered at a highly readable fixed width of 950 pixels -->
-    <table width="950" align="center" cellpadding="20" cellspacing="0">
+<header>
+    <table width="100%">
         <tr>
             <td>
+                <h1>💰 Smart Pocket-Money Budget Planner</h1>
+                <p style="color:#1abc9c;"><strong>Take Control of Your Cashflow, Savings, and Financial Growth</strong></p>
+            </td>
 
-                <!-- SECTION 1: Explaining core student budgeting structures -->
-                <section id="methods">
-                    <h2><font color="#2c3e50" face="Segoe UI, Arial, sans-serif">🧠 Core Budgeting Frameworks</font></h2>
-                    <p><font face="Segoe UI, Arial, sans-serif">Before recording specific transactions, choose a foundational method to structure every rupee that enters your wallet:</font></p>
-                    
-                    <!-- Side-by-side layout created by establishing a table with explicit column widths (50% vs 45%) -->
-                    <table width="100%" cellpadding="15" cellspacing="0">
-                        <tr>
-                            <!-- 50/30/20 Rule Card Component -->
-                            <td width="50%" valign="top" bgcolor="#ffffff" style="border-top: 4px solid #2980b9; border-radius: 4px;">
-                                <h3><font color="#2980b9" face="Segoe UI, Arial, sans-serif">The 50/30/20 Rule</font></h3>
-                                <p><font face="Segoe UI, Arial, sans-serif" size="2">
-                                    Divide your allowance or income into three strict buckets:
-                                    <br>• <strong>50% Needs:</strong> Essential food, transport, and college materials.
-                                    <br>• <strong>30% Wants:</strong> Entertainment, hobbies, and eating out with friends.
-                                    <br>• <strong>20% Savings:</strong> Set aside instantly for future long-term goals.
-                                </font></p>
-                            </td>
-                            <!-- Empty column cell acting as a 5% safety margin divider between boxes -->
-                            <td width="5%">&nbsp;</td>
-                            <!-- Pay Yourself First Card Component -->
-                            <td width="45%" valign="top" bgcolor="#ffffff" style="border-top: 4px solid #8e44ad; border-radius: 4px;">
-                                <h3><font color="#8e44ad" face="Segoe UI, Arial, sans-serif">The "Pay Yourself First" Method</font></h3>
-                                <p><font face="Segoe UI, Arial, sans-serif" size="2">
-                                    The moment you receive pocket money, immediately route a fixed percentage (e.g., 25%) directly into an unreachable savings or investment account. You are entirely free to spend whatever remains without tracking micro-categories.
-                                </font></p>
-                            </td>
-                        </tr>
-                    </table>
-                </section>
-
-                <!-- Clean structural line divider separating sections -->
-                <br><hr size="1" color="#dcdde1"><br>
-
-                <!-- SECTION 2: Transaction history ledger with dramatic color indicators -->
-                <section id="ledger">
-                    <h2><font color="#2c3e50" face="Segoe UI, Arial, sans-serif">📊 Monthly Cashflow Ledger</font></h2>
-                    <p><font face="Segoe UI, Arial, sans-serif">A real-time tracking list highlighting exactly how individual allocations impact your net balance.</font></p>
-                    <p>...tracking list...</p>
-
-<!-- ✅ ADD THIS FORM HERE -->
-<form id="budgetForm">
-    <input type="text" name="description" placeholder="Description" required>
-    <input type="text" name="category" placeholder="Category" required>
-    <input type="number" name="amount" placeholder="Amount" required>
-    <button type="submit">Add Entry</button>
-</form>
-
-<br>
-                    <table border="1">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>Amount</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody id="tableBody"></tbody>
-</table>
-                    <br><br>
-
-<!-- Your existing table stays -->
-
-                    <!-- Table utilizing custom background colors and cell-padding spacing to act as grid lines -->
-                    <table border="0" cellpadding="12" cellspacing="1" width="100%" bgcolor="#dcdde1">
-                        <thead>
-                            <tr bgcolor="#2c3e50">
-                                <th align="left"><font color="#ffffff" face="Segoe UI, Arial, sans-serif">Date</font></th>
-                                <th align="left"><font color="#ffffff" face="Segoe UI, Arial, sans-serif">Description</font></th>
-                                <th align="left"><font color="#ffffff" face="Segoe UI, Arial, sans-serif">Category</font></th>
-                                <th align="right"><font color="#ffffff" face="Segoe UI, Arial, sans-serif">Amount</font></th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tableBody">
-</tbody>
-                        <tbody>
-                            <!-- Income Row: Uses deep emerald green (#27ae60) for positive financial gains -->
-                            <tr bgcolor="#ffffff">
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2">June 01</font></td>
-                                <td><strong><font face="Segoe UI, Arial, sans-serif" size="2">Monthly Pocket Money Allowance</font></strong></td>
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2">Income</font></td>
-                                <td align="right"><strong><font color="#27ae60" face="Segoe UI, Arial, sans-serif">+₹2,500.00</font></strong></td>
-                            </tr>
-                            <!-- Expense Row: Uses rich crimson red (#c0392b) for outgoing costs -->
-                            <tr bgcolor="#f9f9f9">
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2">June 04</font></td>
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2">Textbooks & Coding Notebook</font></td>
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2">Needs</font></td>
-                                <td align="right"><strong><font color="#c0392b" face="Segoe UI, Arial, sans-serif">-₹750.00</font></strong></td>
-                            </tr>
-                            <!-- Income Row (Side Hustle) -->
-                            <tr bgcolor="#ffffff">
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2">June 08</font></td>
-                                <td><strong><font face="Segoe UI, Arial, sans-serif" size="2">Freelance Web Design Assist</font></strong></td>
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2">Side Hustle</font></td>
-                                <td align="right"><strong><font color="#27ae60" face="Segoe UI, Arial, sans-serif">+₹1,200.00</font></strong></td>
-                            </tr>
-                            <!-- Expense Row (Subscription costs) -->
-                            <tr bgcolor="#f9f9f9">
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2">June 11</font></td>
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2">Mobile Data Recharge</font></td>
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2">Needs</font></td>
-                                <td align="right"><strong><font color="#c0392b" face="Segoe UI, Arial, sans-serif">-₹299.00</font></strong></td>
-                            </tr>
-                            <!-- Expense Row (Social lifestyle choices) -->
-                            <tr bgcolor="#ffffff">
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2">June 14</font></td>
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2">Weekend Cafeteria / Fast Food Run</font></td>
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2">Wants</font></td>
-                                <td align="right"><strong><font color="#c0392b" face="Segoe UI, Arial, sans-serif">-₹350.00</font></strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-
-                <br><hr size="1" color="#dcdde1"><br>
-
-                <!-- SECTION 3: Interest comparison tracking table for financial analytics -->
-                <section id="rates">
-                    <h2><font color="#2c3e50" face="Segoe UI, Arial, sans-serif">🏦 Student High-Yield Savings Comparison</font></h2>
-                    <p><font face="Segoe UI, Arial, sans-serif">Where you store your money matters. Leaving liquid cash in a basic account loses value to inflation. Look at these competitive student tier rates:</font></p>
-                    
-                    <table border="1" cellpadding="10" cellspacing="0" width="100%" style="border-collapse: collapse; border-color: #dcdde1;">
-                        <thead>
-                            <tr bgcolor="#f1f2f6">
-                                <th align="left"><font face="Segoe UI, Arial, sans-serif">Banking Institution</font></th>
-                                <th align="center"><font face="Segoe UI, Arial, sans-serif">Annual Yield (APY)</font></th>
-                                <th align="left"><font face="Segoe UI, Arial, sans-serif">Minimum Balance Requirement</font></th>
-                                <th align="left"><font face="Segoe UI, Arial, sans-serif">Key Benefit</font></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong><font face="Segoe UI, Arial, sans-serif" color="#2980b9">Apex Digital Student Account</font></strong></td>
-                                <td align="center"><strong><font color="#27ae60" face="Segoe UI, Arial, sans-serif">6.25%</font></strong></td>
-                                <td><font face="Segoe UI, Arial, sans-serif">₹0</font></td>
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2">Excellent cash tracking mobile app UI</font></td>
-                            </tr>
-                            <tr>
-                                <td><strong><font face="Segoe UI, Arial, sans-serif" color="#2980b9">Beacon Horizon Fixed Tier</font></strong></td>
-                                <td align="center"><strong><font color="#27ae60" face="Segoe UI, Arial, sans-serif">5.90%</font></strong></td>
-                                <td><font face="Segoe UI, Arial, sans-serif">₹500</font></td>
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2">Free student ATM reimbursements nationwide</font></td>
-                            </tr>
-                            <tr>
-                                <td><strong><font face="Segoe UI, Arial, sans-serif" color="#2980b9">Traditional Public Sector Bank</font></strong></td>
-                                <td align="center"><strong><font color="#c0392b" face="Segoe UI, Arial, sans-serif">2.70%</font></strong></td>
-                                <td><font face="Segoe UI, Arial, sans-serif">₹1,000</font></td>
-                                <td><font face="Segoe UI, Arial, sans-serif" size="2" color="#7f8c8d">In-person physical branch availability only</font></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <br>
-                    <!-- TACTICAL ADVICE BOX: Highlighted box layout using an light accent blue background shade -->
-                    <table width="100%" cellpadding="12" cellspacing="0" bgcolor="#e8f4f8" style="border-left: 5px solid #2980b9;">
-                        <tr>
-                            <td>
-                                <strong><font face="Segoe UI, Arial, sans-serif" color="#2c3e50">💡 Quick Tactical Savings Advice:</font></strong>
-                                <ul>
-                                    <li><font face="Segoe UI, Arial, sans-serif" size="2">Automate your transfers. Set up your account to move ₹500 into your savings tier instantly every single month.</font></li>
-                                    <li><font face="Segoe UI, Arial, sans-serif" size="2">Audit recurring subscriptions quarterly. Cancel OTT memberships or app subscriptions you haven't engaged with in over 30 days.</font></li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </table>
-                </section>
-
-                <br><hr size="1" color="#dcdde1"><br>
-
-                <!-- SECTION 4: Interactive calculator form -->
-                <section id="calculator">
-                    <h2><font color="#2c3e50" face="Segoe UI, Arial, sans-serif">📈 Interactive Savings Tracker</font></h2>
-                    <p><font face="Segoe UI, Arial, sans-serif">Set an initial cash milestone goal and define your variables below to calculate your estimated return over a 12-month period.</font></p>
-                    
-                    <table width="100%" cellpadding="15" cellspacing="0" bgcolor="#ffffff" style="border-radius: 4px;">
-                        <tr>
-                            <td>
-                                <!-- 
-                                  INTERACTIVE FORM LOGIC:
-                                  The `oninput` attribute triggers a mathematical calculation every time the user types:
-                                  Formula: Final Balance = Principal + (Principal * (Rate / 100))
-                                  The `.toFixed(2)` ensures that the final result displays exactly 2 decimal points like real currency.
-                                -->
-                                <form oninput="result.value = (parseFloat(principal.value) + (parseFloat(principal.value) * (parseFloat(rate.value)/100))).toFixed(2)">
-                                    <table cellpadding="8" cellspacing="0">
-                                        <tr>
-                                            <td><label for="principal"><font face="Segoe UI, Arial, sans-serif" size="2">Initial Stash Principal (₹):</font></label></td>
-                                            <!-- Standard input fields tracking input numbers -->
-                                            <td><input type="number" id="principal" name="principal" value="2000" min="0" step="100" style="padding: 4px; width: 100px;"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="rate"><font face="Segoe UI, Arial, sans-serif" size="2">Target Bank Interest Rate (%):</font></label></td>
-                                            <td><input type="number" id="rate" name="rate" value="6.25" min="0" step="0.01" style="padding: 4px; width: 100px;"></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2"><hr size="1" color="#eeeeee"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong><font face="Segoe UI, Arial, sans-serif" size="3" color="#2c3e50">Estimated 1-Year Balance:</font></strong></td>
-                                            <td>
-                                                <!-- The <output> tag updates instantly on the fly to print the newly evaluated sum -->
-                                                <font face="Segoe UI, Arial, sans-serif" size="4" color="#27ae60"><strong>₹</font><output name="result" for="principal rate" style="font-family: 'Segoe UI', Arial, sans-serif; font-weight: bold; font-size: 1.2rem; color: #27ae60;">2125.00</output></strong>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </form>
-                            </td>
-                        </tr>
-                    </table>
-                </section>
-
-                <br><hr size="1" color="#dcdde1"><br>
-
-                <!-- AUTHOR CREATOR CREDS: Highlighting platform layout and architectural execution attributes -->
-                <section id="creator-credits">
-                    <table width="100%" cellpadding="15" cellspacing="0" bgcolor="#eef9f5" style="border: 1px dashed #1abc9c; border-radius: 6px;">
-                        <tr>
-                            <td>
-                                <h3><font color="#1abc9c" face="Segoe UI, Arial, sans-serif">🛠️ Platform Design Credits</font></h3>
-                                <p><font face="Segoe UI, Arial, sans-serif" size="2">
-                                    This responsive, pure HTML student financial ecosystem was conceptualized, built, and engineered by <strong>Thasnim</strong>. 
-                                    By applying architectural table positioning systems alongside specific color highlights, this project converts flat logical tracking metrics into an optimized user dashboard.
-                                </font></p>
-                            </td>
-                        </tr>
-                    </table>
-                </section>
-
+            <td align="right">
+                <nav>
+                    <a href="#methods">Budget Methods</a> |
+                    <a href="#ledger">Cashflow</a> |
+                    <a href="#rates">Bank Rates</a> |
+                    <a href="#calculator">Calculator</a>
+                </nav>
             </td>
         </tr>
     </table>
+</header>
 
-    <!-- FOOTER SECTION: Base copyright block anchoring structural elements together -->
-    <footer>
-        <table width="100%" cellpadding="15" cellspacing="0" bgcolor="#2c3e50">
-            <tr>
-                <td>
-                    <p><font color="#bdc3c7" face="Segoe UI, Arial, sans-serif" size="2">Designed for Student Wealth Management Basics.</font></p>
-                </td>
-                <td align="right">
-                    <!-- Dynamic copyright branding and personal layout tracking -->
-                    <p><font color="#bdc3c7" face="Segoe UI, Arial, sans-serif" size="2">&copy; 2026 Smart Pocket Budget Engine | Created by Thasnim</font></p>
-                </td>
-            </tr>
-        </table>
-    </footer>
-    <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbxTudN2CJfpfeCOSLDrY7X_dnVIaWXEDGw7_yXnXyCaQRsKMx3DFwH-RK6LM3vzpMLBeQ/exec";
+<table width="950" align="center" cellpadding="20">
+<tr>
+<td>
 
-document.getElementById("budgetForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+<section id="methods">
+<h2>🧠 Core Budgeting Frameworks</h2>
 
-  const formData = new FormData(e.target);
+<p>
+Learn more about budgeting from 
+<a href="https://www.investopedia.com/budgeting-4689735" target="_blank">
+Investopedia Budgeting Guide
+</a>.
+</p>
 
-  const data = {
-    description: formData.get("description"),
-    category: formData.get("category"),
-    amount: formData.get("amount")
-  };
+<table width="100%">
+<tr>
+<td width="50%" class="card" style="border-top:4px solid #2980b9;">
+<h3 style="color:#2980b9;">50/30/20 Rule</h3>
+<p>
+50% Needs, 30% Wants, 20% Savings. Helps balance spending.
+</p>
+</td>
 
-  await fetch(scriptURL, {
-    method: "POST",
-    body: JSON.stringify(data)
-  });
+<td width="5%"></td>
 
-  alert("Saved to Google Sheet!");
-  e.target.reset();
-});
-</script>
-    <script>
-let data = JSON.parse(localStorage.getItem("data")) || [];
-let editIndex = -1;
+<td width="45%" class="card" style="border-top:4px solid #8e44ad;">
+<h3 style="color:#8e44ad;">Pay Yourself First</h3>
+<p>
+Save first before spending anything else.
+</p>
+</td>
+</tr>
+</table>
+</section>
 
-function displayData() {
-  let table = document.getElementById("tableBody");
-  table.innerHTML = "";
+<hr>
 
-  data.forEach((item, index) => {
-    table.innerHTML += `
-      <tr>
-        <td>${item.date}</td>
-        <td>${item.desc}</td>
-        <td>${item.cat}</td>
-        <td>${item.amt}</td>
-        <td>
-          <button onclick="editData(${index})">Edit</button>
-          <button onclick="deleteData(${index})">Delete</button>
-        </td>
-      </tr>
-    `;
-  });
+<section id="ledger">
+<h2>📊 Monthly Cashflow Ledger</h2>
 
-  localStorage.setItem("data", JSON.stringify(data));
-}
+<table width="100%" border="1">
+<tr style="background:#2c3e50; color:white;">
+<th>Date</th>
+<th>Description</th>
+<th>Category</th>
+<th>Amount</th>
+</tr>
 
-document.getElementById("myForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+<tr>
+<td>June 01</td>
+<td><strong>Pocket Money</strong></td>
+<td>Income</td>
+<td style="color:green;">+₹2500</td>
+</tr>
 
-  let newData = {
-    date: document.getElementById("date").value,
-    desc: document.getElementById("desc").value,
-    cat: document.getElementById("cat").value,
-    amt: document.getElementById("amt").value
-  };
+<tr>
+<td>June 04</td>
+<td>Books</td>
+<td>Needs</td>
+<td style="color:red;">-₹750</td>
+</tr>
 
-  if (editIndex === -1) {
-    data.push(newData);
-  } else {
-    data[editIndex] = newData;
-    editIndex = -1;
-  }
+</table>
+</section>
 
-  this.reset();
-  displayData();
-});
+<hr>
 
-function deleteData(index) {
-  data.splice(index, 1);
-  displayData();
-}
+<section id="rates">
+<h2>🏦 Bank Comparison</h2>
 
-function editData(index) {
-  let item = data[index];
+<table width="100%" border="1">
+<tr>
+<th>Bank</th>
+<th>Interest</th>
+<th>Min Balance</th>
+</tr>
 
-  document.getElementById("date").value = item.date;
-  document.getElementById("desc").value = item.desc;
-  document.getElementById("cat").value = item.cat;
-  document.getElementById("amt").value = item.amt;
+<tr>
+<td>Apex Digital</td>
+<td style="color:green;">6.25%</td>
+<td>₹0</td>
+</tr>
 
-  editIndex = index;
-}
+<tr>
+<td>Public Bank</td>
+<td style="color:red;">2.7%</td>
+<td>₹1000</td>
+</tr>
 
-displayData();
-</script>
-    
+</table>
+
+<p>
+Check RBI official website: 
+<a href="https://www.rbi.org.in/" target="_blank">Reserve Bank of India</a>
+</p>
+
+</section>
+
+<hr>
+
+<section id="calculator">
+<h2>📈 Savings Calculator</h2>
+
+<form oninput="result.value = (parseFloat(principal.value) + (principal.value * rate.value/100)).toFixed(2)">
+
+<label>Amount:</label>
+<input type="number" id="principal" value="2000">
+
+<br><br>
+
+<label>Rate:</label>
+<input type="number" id="rate" value="6.25">
+
+<br><br>
+
+<strong>Result: ₹</strong>
+<output name="result">2125</output>
+
+</form>
+
+</section>
+
+</td>
+</tr>
+</table>
+
+<footer>
+<table width="100%">
+<tr>
+<td>Student Budget Project</td>
+<td align="right">© 2026 Thasnim</td>
+</tr>
+</table>
+</footer>
+
 </body>
 </html>
